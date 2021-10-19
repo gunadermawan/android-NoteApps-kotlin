@@ -1,4 +1,4 @@
-package com.gunder.mynoteapps.dbHelper
+package com.gunder.mynoteapps.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
