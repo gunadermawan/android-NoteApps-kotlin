@@ -1,5 +1,6 @@
 package com.gunder.mynoteapps.db
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -46,5 +47,33 @@ class NoteHelper(context: Context) {
             null,
             "$_ID ASC"
         )
+    }
+
+    //    mengambil data dg id ttntu
+    fun queryById(id: String): Cursor {
+        return database.query(
+            DATABASE_TABLE,
+            null,
+            "$_ID = ?",
+            arrayOf(id),
+            null,
+            null,
+            null,
+            null
+        )
+    }
+
+    //    unutk menyimpan data
+    fun insert(values: ContentValues): Long {
+        return database.insert(DATABASE_TABLE, null, values)
+    }
+
+    //    untuk update data
+    fun update(id: String, values: ContentValues): Int {
+        return database.update(DATABASE_TABLE, values, "$_ID = ?", arrayOf(id))
+    }
+//    delete data
+    fun delete(id: String): Int{
+        return database.delete(DATABASE_TABLE, "$_ID = '$id'", null)
     }
 }
