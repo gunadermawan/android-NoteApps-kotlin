@@ -1,8 +1,10 @@
 package com.gunder.mynoteapps.db
 
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import com.gunder.mynoteapps.db.DatabaseContract.NoteColumns.Companion.TABLE_NAME
+import com.gunder.mynoteapps.db.DatabaseContract.NoteColumns.Companion._ID
 import java.sql.SQLException
 
 
@@ -30,5 +32,19 @@ class NoteHelper(context: Context) {
 
     fun close() {
         database.close()
+    }
+
+    //    Method CRUD
+//    get data
+    fun queryAll(): Cursor {
+        return database.query(
+            DATABASE_TABLE,
+            null,
+            null,
+            null,
+            null,
+            null,
+            "$_ID ASC"
+        )
     }
 }
