@@ -1,7 +1,8 @@
-package com.gunder.mynoteapps
+package com.gunder.mynoteapps.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.gunder.mynoteapps.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
